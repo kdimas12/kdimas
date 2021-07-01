@@ -25,7 +25,7 @@ export default function Home({ list }) {
         <p className="my-3">
           I'm a student of State Islamic University of North Sumatra. Recently I
           focused on <span className="text-blue-600">Javascript</span> as my
-          programming language, usualy I use{' '}
+          programming language, before it I use{' '}
           <span className="text-blue-600">Python</span>.
         </p>
       </section>
