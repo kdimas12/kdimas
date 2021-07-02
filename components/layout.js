@@ -8,7 +8,7 @@ export const siteTitle = 'Dimas Kurniawan';
 
 export default function Layout({ children, home }) {
   return (
-    <div className="prose container mx-auto mt-12">
+    <div className="prose container px-5 sm:px-0 mx-auto mt-12">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
