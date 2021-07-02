@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Footer from './footer';
 
 const name = 'Dimas Kurniawan';
-export const siteTitle = 'Next.js Sample Website';
+export const siteTitle = 'Dimas Kurniawan';
 
 export default function Layout({ children, home }) {
   return (

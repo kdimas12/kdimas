@@ -5,7 +5,7 @@ import Layout, { siteTitle } from '../components/layout';
 import { url } from '../config/next.config';
 
 export const getStaticProps = async () => {
-  const data = await fetch(`${url}/articles?_sort=published_at:desc`);
+  const data = await fetch(`${url}/articles?_sort=published_at:desc&_limit=3`);
   const list = await data.json();
 
   return {
@@ -30,7 +30,7 @@ export default function Home({ list }) {
         </p>
       </section>
       <section>
-        <h2>Blog</h2>
+        <h2>Latest</h2>
         <ul>
           {list.map((item) => (
             <li key={item.id}>
@@ -44,6 +44,11 @@ export default function Home({ list }) {
             </li>
           ))}
         </ul>
+        <div className="text-right">
+          <Link href="/posts">
+            <a>Show more →</a>
+          </Link>
+        </div>
       </section>
     </Layout>
   );
