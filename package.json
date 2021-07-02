@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "@tailwindcss/typography": "^0.4.1",
     "date-fns": "^2.22.1",
     "gray-matter": "^4.0.3",

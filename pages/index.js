@@ -28,6 +28,23 @@ export default function Home({ list }) {
           programming language, before it I use{' '}
           <span className="text-blue-600">Python</span>.
         </p>
+        <div className="text-center">
+          <Link href="https://github.com/kdimas12">
+            <a>
+              <i className="fab fa-github text-2xl mx-3 text-gray-600"></i>
+            </a>
+          </Link>
+          <Link href="https://www.instagram.com/kdimas29">
+            <a>
+              <i className="fab fa-instagram text-2xl mx-3 text-gray-600"></i>
+            </a>
+          </Link>
+          <Link href="https://www.facebook.com/dimas.kurniawan.503/">
+            <a>
+              <i className="fab fa-facebook text-2xl mx-3 text-gray-600"></i>
+            </a>
+          </Link>
+        </div>
       </section>
       <section>
         <h2>Latest</h2>
