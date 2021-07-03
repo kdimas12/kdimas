@@ -2,13 +2,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import Footer from './footer';
+import Nav from './nav';
 
 const name = 'Dimas Kurniawan';
 export const siteTitle = 'Dimas Kurniawan';
 
 export default function Layout({ children, home }) {
   return (
-    <div className="prose container px-5 sm:px-0 mx-auto mt-12">
+    <div className="prose container px-5 sm:px-0 mx-auto mt-1">
       <Head>
         <link rel="icon" href="/images/icon.png" />
         <meta
@@ -28,6 +29,8 @@ export default function Layout({ children, home }) {
       <header className="text-center">
         {home ? (
           <>
+            <Nav />
+            <br />
             <Image
               priority
               src="/images/upsace.jpg"
@@ -36,27 +39,26 @@ export default function Layout({ children, home }) {
               width={144}
               alt={name}
             />
-            <h1>
-              Hi, I'm <b>{name}</b>
+            <h1 style={{ marginTop: '1rem' }}>
+              <span className="font-normal">Hi, I'm </span> {name}
             </h1>
           </>
         ) : (
           <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/upsace.jpg"
-                  className="rounded-full"
-                  height={100}
-                  width={100}
-                  alt={name}
-                />
-                <h2 style={{ marginTop: 0 }}>
-                  Hi, I'm <b>{name}</b>
-                </h2>
-              </a>
-            </Link>
+            <Nav />
+            <br />
+
+            <Image
+              priority
+              src="/images/upsace.jpg"
+              className="rounded-full"
+              height={100}
+              width={100}
+              alt={name}
+            />
+            <h2 style={{ marginTop: 0 }}>
+              <span className="font-normal">Hi, I'm </span> {name}
+            </h2>
           </>
         )}
       </header>
