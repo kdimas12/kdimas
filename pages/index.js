@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Dates from '../components/date';
 import Layout, { siteTitle } from '../components/layout';
 import { url } from '../config/next.config';
+import Project from '../components/project';
 
 export const getStaticProps = async () => {
   const data = await fetch(`${url}/articles?_sort=published_at:desc&_limit=3`);
@@ -46,6 +47,7 @@ export default function Home({ list }) {
           </Link>
         </div>
       </section>
+
       <section>
         <h2>Latest</h2>
         <ul>
@@ -67,6 +69,7 @@ export default function Home({ list }) {
           </Link>
         </div>
       </section>
+      <Project />
     </Layout>
   );
 }
