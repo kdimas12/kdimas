@@ -14,6 +14,16 @@ export default function Nav() {
     }
   };
 
+  // const toggleButton = () => {
+  //   {
+  //     theme === 'dark' ? (
+  //       <i className="fas fa-sun text-gray-600"></i>
+  //     ) : (
+  //       <i className="fas fa-moon text-gray-600"></i>
+  //     );
+  //   }
+  // };
+
   return (
     <nav className="flex justify-between">
       <div className="flex items-center space-x-3">
@@ -46,7 +56,12 @@ export default function Nav() {
           className="p-3 h-12 w-12 order-2 md:order-3"
           onClick={switchTheme}
         >
-          switch
+          {isMounted &&
+            (theme === 'dark' ? (
+              <i className="fas fa-sun text-gray-600"></i>
+            ) : (
+              <i className="fas fa-moon text-gray-600"></i>
+            ))}
         </button>
       </div>
     </nav>
