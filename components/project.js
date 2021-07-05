@@ -5,7 +5,7 @@ export default function Project() {
   return (
     <section className="text-xs">
       <h2>Projects</h2>
-      <div className="w-full rounded-lg ring-1 p-4">
+      <div className="w-full rounded-lg ring-1 p-4 dark:ring-blue-400">
         <h3
           className="font-semibold text-lg tracking-wide"
           style={{ marginTop: 0 }}
@@ -23,7 +23,7 @@ export default function Project() {
         </Link>
       </div>
       <br />
-      <div className="w-full rounded-lg ring-1 p-4">
+      <div className="w-full rounded-lg ring-1 p-4 dark:ring-blue-400">
         <h3
           className="font-semibold text-lg tracking-wide"
           style={{ marginTop: 0 }}

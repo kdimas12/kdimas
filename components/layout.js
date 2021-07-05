@@ -9,7 +9,7 @@ export const siteTitle = 'Dimas Kurniawan';
 
 export default function Layout({ children, home }) {
   return (
-    <div className="prose container px-5 sm:px-0 mx-auto mt-1">
+    <div className="prose dark:prose-dark container px-5 sm:px-0 mx-auto mt-1">
       <Head>
         <link rel="icon" href="/images/icon.png" />
         <meta

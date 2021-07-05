@@ -25,9 +25,10 @@ export default function Home({ list }) {
       <section>
         <p className="my-3">
           I'm a student of State Islamic University of North Sumatra. Recently I
-          focused on <span className="text-blue-600">Javascript</span> as my
-          programming language, before it I use{' '}
-          <span className="text-blue-600">Python</span>.
+          focused on{' '}
+          <span className="text-blue-600 dark:text-blue-400">Javascript</span>{' '}
+          as my programming language, before it I use{' '}
+          <span className="text-blue-600 dark:text-blue-400">Python</span>.
         </p>
         <div className="text-center">
           <Link href="https://github.com/kdimas12">
