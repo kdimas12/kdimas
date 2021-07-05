@@ -14,16 +14,6 @@ export default function Nav() {
     }
   };
 
-  // const toggleButton = () => {
-  //   {
-  //     theme === 'dark' ? (
-  //       <i className="fas fa-sun text-gray-600"></i>
-  //     ) : (
-  //       <i className="fas fa-moon text-gray-600"></i>
-  //     );
-  //   }
-  // };
-
   return (
     <nav className="flex justify-between">
       <div className="flex items-center space-x-3">
@@ -49,7 +39,6 @@ export default function Nav() {
             <span className="font-normal">Contact</span>
           </a>
         </Link>
-        {/* {ThemeChanger()} */}
         <button
           aria-label="Toggle Dark Mode"
           type="button"
