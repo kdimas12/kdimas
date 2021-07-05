@@ -1,19 +1,7 @@
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import Toogle from './toggle';
 
 export default function Nav() {
-  const [isMounted, setIsMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-  const switchTheme = () => {
-    if (isMounted) {
-      setTheme(theme === 'light' ? 'dark' : 'light');
-    }
-  };
-
   return (
     <nav className="flex justify-between">
       <div className="flex items-center space-x-3">
@@ -39,19 +27,7 @@ export default function Nav() {
             <span className="font-normal">Contact</span>
           </a>
         </Link>
-        <button
-          aria-label="Toggle Dark Mode"
-          type="button"
-          className="p-3 h-12 w-12 order-2 md:order-3"
-          onClick={switchTheme}
-        >
-          {isMounted &&
-            (theme === 'dark' ? (
-              <i className="fas fa-sun text-gray-600"></i>
-            ) : (
-              <i className="fas fa-moon text-gray-600"></i>
-            ))}
-        </button>
+        <Toogle />
       </div>
     </nav>
   );

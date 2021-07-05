@@ -5,13 +5,21 @@ import Dates from '../../components/date';
 import { url } from '../../config/next.config';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const components = {
   code({ node, inline, className, children, ...props }) {
+    const [isMounted, setIsMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
+    useEffect(() => {
+      setIsMounted(true);
+    }, []);
     const match = /language-(\w+)/.exec(className || '');
     return !inline && match ? (
       <SyntaxHighlighter
-        style={dracula}
+        style={isMounted && (theme === 'dark' ? dracula : prism)}
         wrapLongLines
         language={match[1]}
         PreTag="div"
