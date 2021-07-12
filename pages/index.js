@@ -4,6 +4,7 @@ import Dates from '../components/date';
 import Layout, { siteTitle } from '../components/layout';
 import { url } from '../config/next.config';
 import Project from '../components/project';
+import { FaFacebookSquare, FaGithub, FaInstagram } from 'react-icons/fa';
 
 export const getStaticProps = async () => {
   const data = await fetch(`${url}/articles?_sort=published_at:desc&_limit=3`);
@@ -30,20 +31,20 @@ export default function Home({ list }) {
           as my programming language, before it I use{' '}
           <span className="text-blue-600 dark:text-blue-400">Python</span>.
         </p>
-        <div className="text-center">
+        <div className="flex items-center justify-center">
           <Link href="https://github.com/kdimas12">
             <a className="text-2xl mx-3">
-              <i className="fab fa-github text-gray-600"></i>
+              <FaGithub />
             </a>
           </Link>
           <Link href="https://www.instagram.com/kdimas29">
             <a className="text-2xl mx-3">
-              <i className="fab fa-instagram text-gray-600"></i>
+              <FaInstagram />
             </a>
           </Link>
           <Link href="https://www.facebook.com/dimas.kurniawan.503/">
             <a className="text-2xl mx-3">
-              <i className="fab fa-facebook text-gray-600"></i>
+              <FaFacebookSquare />
             </a>
           </Link>
         </div>
