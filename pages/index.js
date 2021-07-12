@@ -28,8 +28,7 @@ export default function Home({ list }) {
           I'm a student of State Islamic University of North Sumatra. Recently I
           focused on{' '}
           <span className="text-blue-600 dark:text-blue-400">Javascript</span>{' '}
-          as my programming language, before it I use{' '}
-          <span className="text-blue-600 dark:text-blue-400">Python</span>.
+          as my programming language.
         </p>
         <div className="flex items-center justify-center">
           <Link href="https://github.com/kdimas12">
@@ -51,7 +50,7 @@ export default function Home({ list }) {
       </section>
 
       <section>
-        <h2>Latest</h2>
+        <h2>Recent posts</h2>
         <ul>
           {list.map((item) => (
             <li key={item.id}>

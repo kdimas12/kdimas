@@ -46,19 +46,6 @@ export default function Layout({ children, home }) {
         ) : (
           <>
             <Nav />
-            <br />
-
-            <Image
-              priority
-              src="/images/upsace.jpg"
-              className="rounded-full"
-              height={100}
-              width={100}
-              alt={name}
-            />
-            <h2 style={{ marginTop: 0 }}>
-              <span className="font-normal">Hi, I'm </span> {name}
-            </h2>
           </>
         )}
       </header>
