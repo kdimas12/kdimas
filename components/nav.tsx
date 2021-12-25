@@ -6,7 +6,7 @@ export default function Nav() {
       <div className="flex items-center justify-between">
         <div>
           <Link href="/">
-            <a className="text-xl font-semibold text-gray-800 transition-colors duration-200 transform hover:text-gray-700">
+            <a className="text-xl font-semibold text-gray-700 hover:text-gray-900">
               Dimas
             </a>
           </Link>
@@ -14,22 +14,22 @@ export default function Nav() {
         <div className="items-center">
           <div className="flex flex-col-row">
             <Link href="/about">
-              <a className="my-1 text-gray-700 transition-colors duration-200 transform hover:text-blue-500 mx-2 md:mx-4 md:my-0">
+              <a className="my-1 text-gray-500 hover:text-gray-900 mx-2 md:mx-4 md:my-0">
                 Tentang
               </a>
             </Link>
             <Link href="/blog">
-              <a className="my-1 text-gray-700 transition-colors duration-200 transform hover:text-blue-500 mx-2 md:mx-4 md:my-0">
+              <a className="my-1 text-gray-500 hover:text-gray-900 mx-2 md:mx-4 md:my-0">
                 Blog
               </a>
             </Link>
             <Link href="/projek">
-              <a className="my-1 text-gray-700 transition-colors duration-200 transform hover:text-blue-500 mx-2 md:mx-4 md:my-0">
+              <a className="my-1 text-gray-500 hover:text-gray-900 mx-2 md:mx-4 md:my-0">
                 Projek
               </a>
             </Link>
             <Link href="/contact">
-              <a className="my-1 text-gray-700 transition-colors duration-200 transform hover:text-blue-500 mx-2 md:mx-4 md:my-0">
+              <a className="my-1 text-gray-500 hover:text-gray-900 mx-2 md:mx-4 md:my-0">
                 Kontak
               </a>
             </Link>
