@@ -7,7 +7,7 @@ export default function Nav() {
         <div>
           <Link href="/">
             <a className="text-xl font-semibold text-gray-800 transition-colors duration-200 transform hover:text-gray-700">
-              dimas
+              Dimas
             </a>
           </Link>
         </div>
@@ -15,22 +15,22 @@ export default function Nav() {
           <div className="flex flex-col-row">
             <Link href="/about">
               <a className="my-1 text-gray-700 transition-colors duration-200 transform hover:text-blue-500 mx-2 md:mx-4 md:my-0">
-                tentang
+                Tentang
               </a>
             </Link>
             <Link href="/blog">
               <a className="my-1 text-gray-700 transition-colors duration-200 transform hover:text-blue-500 mx-2 md:mx-4 md:my-0">
-                blog
+                Blog
               </a>
             </Link>
             <Link href="/projek">
               <a className="my-1 text-gray-700 transition-colors duration-200 transform hover:text-blue-500 mx-2 md:mx-4 md:my-0">
-                projek
+                Projek
               </a>
             </Link>
             <Link href="/contact">
               <a className="my-1 text-gray-700 transition-colors duration-200 transform hover:text-blue-500 mx-2 md:mx-4 md:my-0">
-                kontak
+                Kontak
               </a>
             </Link>
           </div>

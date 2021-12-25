@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <div className="md:mt-10 mt-5 flex-grow">
       <h1 className="text-3xl font-bold text-gray-800 mb-3">
-        hai, saya Dimas Kurniawan
+        Hai, Saya Dimas Kurniawan
       </h1>
       <p className="text-gray-700 md:text-lg mb-5">
         Blog ini berisi tulisan dan dokumentasi tentang apa yang saya pelajari
