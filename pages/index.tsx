@@ -25,9 +25,7 @@ const Home = ({ data }: BlogListProps) => {
         <Nav />
         <Hero />
         <main className="mt-10">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4 md:px-5">
-            Tulisan Terbaru
-          </h1>
+          <h1 className="text-3xl font-bold mb-4 md:px-5">Tulisan Terbaru</h1>
           <ul>
             {data.map(({ id, title }) => (
               <li

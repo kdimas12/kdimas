@@ -6,9 +6,7 @@ export default function Nav() {
       <div className="flex items-center justify-between">
         <div>
           <Link href="/">
-            <a className="text-xl font-semibold text-gray-700 hover:text-gray-900">
-              Dimas
-            </a>
+            <a className="text-xl font-semibold">Dimas</a>
           </Link>
         </div>
         <div className="items-center">
