@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <div className="md:mt-10 mt-5 flex-grow md:px-5">
+    <div className="md:mt-10 mt-5 mb-10 md:px-5">
       <h1 className="text-3xl font-bold mb-3">Hai, Saya Dimas Kurniawan</h1>
       <p className="text-gray-700 md:text-lg mb-5">
         Blog ini berisi tulisan dan dokumentasi tentang apa yang saya pelajari
