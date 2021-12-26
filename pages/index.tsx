@@ -1,10 +1,19 @@
-import type { NextPage } from 'next';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Nav from '../components/nav';
 import Hero from '../components/hero';
 import Footer from '../components/footer';
 
-const Home: NextPage = () => {
+interface BlogListProps {
+  data: {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+  }[];
+}
+
+const Home = ({ data }: BlogListProps) => {
   return (
     <div className="px-6">
       <div className="flex flex-col min-h-screen max-w-screen-md mx-auto">
@@ -15,10 +24,35 @@ const Home: NextPage = () => {
 
         <Nav />
         <Hero />
+        <main className="mt-10">
+          <h1 className="text-3xl font-bold text-gray-800 mb-3 px-5">
+            Tulisan Terbaru
+          </h1>
+          <ul>
+            {data.map(({ id, title }) => (
+              <li
+                key={id}
+                className="capitalize rounded-sm py-2 px-5 hover:bg-gray-200 hover:text-gray-900 text-gray-700"
+              >
+                {title}
+              </li>
+            ))}
+          </ul>
+        </main>
         <Footer />
       </div>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const data = await res.json();
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default Home;
