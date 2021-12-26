@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Nav() {
   return (
-    <nav className="py-4 px-5">
+    <nav className="py-4 md:px-5">
       <div className="flex items-center justify-between">
         <div>
           <Link href="/">

@@ -25,14 +25,14 @@ const Home = ({ data }: BlogListProps) => {
         <Nav />
         <Hero />
         <main className="mt-10">
-          <h1 className="text-3xl font-bold text-gray-800 mb-3 px-5">
+          <h1 className="text-3xl font-bold text-gray-800 mb-4 md:px-5">
             Tulisan Terbaru
           </h1>
           <ul>
             {data.map(({ id, title }) => (
               <li
                 key={id}
-                className="capitalize rounded-sm py-2 px-5 hover:bg-gray-200 hover:text-gray-900 text-gray-700"
+                className="capitalize rounded-sm py-2 md:px-5 md:hover:bg-gray-200 md:hover:text-gray-900 text-gray-700"
               >
                 {title}
               </li>
