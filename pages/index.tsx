@@ -26,16 +26,17 @@ const Home = ({ data }: BlogListProps) => {
         <Hero />
         <main className="mt-10">
           <h1 className="text-3xl font-bold mb-4 md:px-5">Tulisan Terbaru</h1>
-          <ul>
+          <div className="grid">
             {data.map(({ id, title }) => (
-              <li
+              <a
                 key={id}
+                href=""
                 className="capitalize rounded-sm py-2 md:px-5 md:hover:bg-gray-200 md:hover:text-gray-900 text-gray-700"
               >
                 {title}
-              </li>
+              </a>
             ))}
-          </ul>
+          </div>
         </main>
         <Footer />
       </div>
