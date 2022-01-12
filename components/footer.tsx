@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="items-center">
           <div className="flex flex-col-row">
             <Link href="/donate">
-              <a className="my-1 text-gray-500 hover:text-gray-900 mx-2 md:mx-4 md:my-0">
+              <a className="my-1 text-gray-500 hover:text-gray-900 md:my-0">
                 Donate
               </a>
             </Link>
