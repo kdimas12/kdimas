@@ -1,5 +1,7 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
+
 import Nav from '../components/nav';
 import Hero from '../components/hero';
 import Footer from '../components/footer';
@@ -28,7 +30,12 @@ const Home = ({ data }: BlogListProps) => {
         <Nav />
         <Hero />
         <main className="mt-10 flex-grow">
-          <h1 className="text-3xl font-bold mb-4 md:px-5">Tulisan Terbaru</h1>
+          <div className="mb-4 md:px-5 flex items-center">
+            <h1 className="text-3xl font-bold">Tulisan Terbaru</h1>
+            <Link href="/blog">
+              <a className="underline ml-auto">Liat Semuanya</a>
+            </Link>
+          </div>
           <div className="grid">
             {data.map(({ id, text, publishDate }) => (
               <a
