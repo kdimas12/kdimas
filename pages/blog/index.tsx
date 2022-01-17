@@ -29,8 +29,14 @@ const Blog = ({ data }: AllListPostProps) => {
 
         <Nav />
         <main className="mt-10 flex-grow">
-          <div className="mb-4 md:px-5 flex items-center">
-            <h1 className="text-3xl font-bold">Semua Tulisan</h1>
+          <div className="mb-4 md:px-5">
+            <h1 className="text-3xl font-bold mb-3">Semua Tulisan</h1>
+            <input
+              type="email"
+              id="email"
+              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="Ketik untuk mencari..."
+            ></input>
           </div>
           <div className="grid">
             {data.map(({ id, text, publishDate }) => (
