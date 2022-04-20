@@ -35,19 +35,20 @@ export default function Home({ contents }) {
       {/* Hero end */}
 
       {/* Post start */}
-      <div>
-        <h3 className="font-bold text-2xl text-gray-900">Tulisan Terbaru</h3>
-        <hr className='mb-3' />
+      <div className='mb-5'>
+        <h3 className="font-bold text-xl text-gray-900 mb-3">Tulisan Terbaru</h3>
         <ul>
           {contents.map((content, index) => (
             <li key={index}>
               <Link href={`/blog/${content.slug}`}>
-                <a className='capitalize rounded-sm py-1 md:-mx-3 md:px-3 md:hover:bg-gray-200 md:hover:text-gray-900 text-gray-700 flex gap-4  items-center'>{content.fronmatter.title} <span className="whitespace-nowrap ml-auto text-sm text-gray-500 text-xs">
-                  {new Date(content.fronmatter.date).toLocaleDateString('en-us', {
-                    day: '2-digit',
-                    month: 'short',
-                  })}
-                </span></a>
+                <a className='capitalize rounded-sm py-1 md:-mx-3 md:px-3 md:hover:bg-gray-200 grid text-gray-900'>
+                  <span>
+                    {content.fronmatter.title}
+                  </span>
+                  <span className='text-gray-600 text-xs'>
+                    {new Intl.DateTimeFormat(['ban', 'id'], { day: "2-digit", month: "short", year: "numeric" }).format(new Date(content.fronmatter.date))}
+                  </span>
+                </a>
               </Link>
             </li>
           ))}
