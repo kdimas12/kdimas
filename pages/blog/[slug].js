@@ -1,51 +1,77 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import { marked } from 'marked'
-import Link from 'next/link'
 import Head from 'next/head'
+import dayjs from 'dayjs'
+import Image from 'next/image'
+import rehypeSlug from 'rehype-slug'
+import { MDXRemote } from 'next-mdx-remote'
+import rehypeHighlight from 'rehype-highlight'
+import rehypeCodeTitles from 'rehype-code-titles'
+import { serialize } from 'next-mdx-remote/serialize'
+import 'highlight.js/styles/atom-one-dark-reasonable.css'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { getSlug, getArticleFromSlug } from "../../src/utils/mdx"
 
-export default function BlogPost({ fronmatter: { title, date }, slug, content }) {
+export default function BlogPost({ post: { source, frontmatter } }) {
   return (
     <>
       <Head>
-        <title>{title} - Dimas Kurniawan</title>
+        <title>{frontmatter.title} - Dimas Kurniawan</title>
       </Head>
       <div className='mt-5'>
-        <h1 className='text-3xl font-bold text-gray-900'>{title}</h1>
-        <small className='text-gray-800'>Posted on <b>{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full' }).format(new Date(date))}</b></small>
-        <div className='prose'>
-          <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+        <div className='mb-10'>
+          <h1 className='text-3xl font-bold text-gray-900'>{frontmatter.title}</h1>
+          <small className='text-gray-800'>Posted on <b>{dayjs(frontmatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
+            {frontmatter.readingTime}</b></small>
+        </div>
+        <div className="prose">
+          <MDXRemote {...source} />
         </div>
       </div>
     </>
   )
 }
 
+// dynamically generate the slugs for each article(s)
 export async function getStaticPaths() {
-  const files = fs.readdirSync(path.join('contents'))
-
-  const paths = files.map(filename => ({
-    params: {
-      slug: filename.replace('.md', '')
-    }
-  }))
+  // getting all paths of each article as an array of
+  // objects with their unique slugs
+  const paths = (await getSlug()).map((slug) => ({ params: { slug } }))
 
   return {
     paths,
-    fallback: false
+    // in situations where you try to access a path
+    // that does not exist. it'll return a 404 page
+    fallback: false,
   }
 }
 
-export async function getStaticProps({ params: slug }) {
-  const markdownWithMeta = fs.readFileSync(path.join('contents', slug.slug + '.md'), 'utf-8')
-  const { data: fronmatter, content } = matter(markdownWithMeta)
+export async function getStaticProps({ params }) {
+  //fetch the particular file based on the slug
+  const { slug } = params
+  const { content, frontmatter } = await getArticleFromSlug(slug)
+
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            properties: { className: ['anchor'] },
+          },
+          { behaviour: 'wrap' },
+        ],
+        rehypeHighlight,
+        rehypeCodeTitles,
+      ],
+    },
+  })
 
   return {
     props: {
-      fronmatter,
-      slug,
-      content
-    }
+      post: {
+        source: mdxSource,
+        frontmatter,
+      },
+    },
   }
 }

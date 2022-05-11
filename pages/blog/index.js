@@ -1,11 +1,9 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
 import Link from "next/link";
 import Head from "next/head";
-import { sortByDate } from '../../utils'
+import dayjs from 'dayjs'
+import { getAllArticles } from '../../src/utils/mdx'
 
-export default function Blog({ contents }) {
+export default function Blog({ posts }) {
   return (
     <>
       <Head>
@@ -22,15 +20,16 @@ export default function Blog({ contents }) {
         ></input>
 
         <ul className='mt-5'>
-          {contents.map((content, index) => (
+          {posts.map((frontmatter, index) => (
             <li key={index}>
-              <Link href={`/blog/${content.slug}`}>
+              <Link href={`/blog/${frontmatter.slug}`}>
                 <a className='capitalize rounded-sm py-1 md:-mx-3 md:px-3 md:hover:bg-gray-200 grid text-gray-900'>
                   <span>
-                    {content.fronmatter.title}
+                    {frontmatter.title}
                   </span>
                   <span className='text-gray-600 text-xs'>
-                    {new Intl.DateTimeFormat(['ban', 'id'], { day: "2-digit", month: "short", year: "numeric" }).format(new Date(content.fronmatter.date))}
+                    {dayjs(frontmatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
+                    {frontmatter.readingTime}
                   </span>
                 </a>
               </Link>
@@ -43,26 +42,19 @@ export default function Blog({ contents }) {
 }
 
 export async function getStaticProps() {
-  // get files from the contents dir
-  const files = fs.readdirSync(path.join('contents'))
+  const articles = await getAllArticles();
+  articles
+    .map((article) => article.data)
+    .sort((a, b) => {
+      if (a.data.publishedAt > b.data.publishedAt) return 1
+      if (a.data.publishedAt < b.data.publishedAt) return -1
 
-  // get slug and fronmatter from contents
-  const contents = files.map(filename => {
-    // Create slug
-    const slug = filename.replace('.md', '')
-
-    const markdownWithMeta = fs.readFileSync(path.join('contents', filename), 'utf-8')
-    const { data: fronmatter } = matter(markdownWithMeta)
-
-    return {
-      slug,
-      fronmatter
-    }
-  })
+      return 0
+    })
 
   return {
     props: {
-      contents: contents.sort(sortByDate)
-    }
+      posts: articles.reverse(),
+    },
   }
 }
