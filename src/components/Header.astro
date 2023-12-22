@@ -1,0 +1,47 @@
+---
+import { Icon } from "astro-icon";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="mx-auto w-full max-w-screen-md border-gray-200 items-center px-3"
+>
+  <div class="flex items-center justify-between border-b py-5">
+    <div class="flex gap-4">
+      <a
+        class:list={[
+          "font-semibold unset text-gray-600 animated-link",
+          currentPath === "/" ? "active" : "",
+        ]}
+        href="/">Home</a
+      >
+      <a
+        class:list={[
+          "font-semibold unset text-gray-600 animated-link",
+          currentPath === "/blog" ? "active" : "",
+        ]}
+        href="/blog">Blog</a
+      >
+      <a
+        class:list={[
+          "font-semibold unset text-gray-600 animated-link",
+          currentPath === "/projects" ? "active" : "",
+        ]}
+        href="/projects">Projects</a
+      >
+    </div>
+    <div class="flex gap-4">
+      <a
+        class="font-semibold unset text-gray-600"
+        href="/search"
+        aria-label="Search for..."
+        ><Icon
+          pack="ion"
+          name="moon"
+          class="w-5 transition-all transform hover:rotate-12"
+        /></a
+      >
+    </div>
+  </div>
+</header>

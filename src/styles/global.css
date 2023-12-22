@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-size: 1.0625em;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  a:not(.unset) {
+    @apply underline underline-offset-4 decoration-blue-600;
+  }
+
+  a:not(.unset):hover {
+    @apply text-blue-600;
+  }
+
+  .active {
+    @apply underline underline-offset-4 decoration-blue-600;
+  }
+
+  .animated-link {
+    position: relative;
+    box-decoration-break: clone;
+    text-decoration: none;
+  }
+
+  .animated-link:hover:after {
+      transform: translateZ(0) scale(1);
+  }
+
+  .animated-link:after {
+      left: 0;
+      right: 0;
+      bottom: -0.5px;
+      content: "";
+      height: 1.5px;
+      position: absolute;
+      transform: translateZ(0) scaleX(0);
+      transform-origin: left center;
+      transition: all .150s ease-in-out;
+      background-image: linear-gradient(to right, theme(colors.blue.600), theme(colors.blue.600));
+  }
+
+  .animated-link.active:after {
+      transform: translateZ(0) scale(1);
+  }
+}
