@@ -36,12 +36,14 @@ const currentPath = Astro.url.pathname;
         class="font-semibold unset text-gray-600"
         href="/search"
         aria-label="Search for..."
-        ><Icon
+      >
+        <span class="sr-only">Dark Mode</span>
+        <Icon
           pack="ion"
           name="moon"
           class="w-5 transition-all transform hover:rotate-12"
-        /></a
-      >
+        />
+      </a>
     </div>
   </div>
 </header>
