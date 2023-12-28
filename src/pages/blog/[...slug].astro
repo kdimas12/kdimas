@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const blogs = await getCollection("blog");
+
+  return blogs.map((blog) => ({
+    params: {
+      slug: blog.slug,
+    },
+    props: {
+      blog,
+    },
+  }));
+}
+
+const { blog } = Astro.props;
+const { Content } = await blog.render();
+---
+
+<Layout title="Dimas Kurniawan.">
+  <main
+    class="max-w-screen-md mx-auto px-3 py-10 flex-grow prose prose-neutral prose-h1:font-bold"
+  >
+    <div class="mb-10 text-center">
+      <h1 class="mb-0">{blog.data.title}</h1>
+      <p class="mt-3">
+        <FormattedDate date={blog.data.pubDate} /> - {
+          JSON.stringify(blog.data.tags)
+        }
+      </p>
+    </div>
+    <div>
+      <Content />
+    </div>
+  </main>
+</Layout>
