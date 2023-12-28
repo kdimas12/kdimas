@@ -21,19 +21,19 @@ const { Content } = await blog.render();
 ---
 
 <Layout title="Dimas Kurniawan.">
-  <main
-    class="max-w-screen-md mx-auto px-3 py-10 flex-grow prose prose-neutral prose-h1:font-bold"
-  >
-    <div class="mb-10 text-center">
-      <h1 class="mb-0">{blog.data.title}</h1>
-      <p class="mt-3">
-        <FormattedDate date={blog.data.pubDate} /> - {
-          JSON.stringify(blog.data.tags)
-        }
-      </p>
-    </div>
-    <div>
-      <Content />
+  <main class="max-w-screen-md mx-auto px-3 py-10 flex-grow w-full">
+    <div class="prose prose-neutral prose-h1:font-bold max-w-none">
+      <div class="mb-10 text-center">
+        <h1 class="mb-0">{blog.data.title}</h1>
+        <p class="mt-3">
+          <FormattedDate date={blog.data.pubDate} /> - {
+            JSON.stringify(blog.data.tags)
+          }
+        </p>
+      </div>
+      <div>
+        <Content />
+      </div>
     </div>
   </main>
 </Layout>
